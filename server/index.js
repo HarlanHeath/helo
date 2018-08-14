@@ -1,3 +1,5 @@
+require("dotenv").config();
+const massive = require("massive");
 const express = require("express");
 const { json } = require("body-parser");
 const controller = require("./controller");
