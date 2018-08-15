@@ -13,6 +13,8 @@ export default class Auth extends Component {
       <div>
         <input placeholder="username" />
         <input placeholder="password" />
+        <button> Login </button>
+        <button> Register </button>
       </div>
     );
   }
