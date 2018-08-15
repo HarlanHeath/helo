@@ -8,38 +8,42 @@ export default class Auth extends Component {
       username: "",
       password: ""
     };
+    this.userField = this.userField.bind(this);
+    this.passField = this.passField.bind(this);
+    this.createUser = this.createUser.bind(this);
+    this.loginUser = this.loginUser.bind(this);
   }
 
-  inputField(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  userField(e) {
+    console.log(e.target.value);
+    this.setState({ username: e.target.value });
+  }
+
+  passField(e) {
+    console.log(e.target.value);
+    this.setState({ password: e.target.value });
   }
 
   createUser() {
-    axios
-      .post("/register", { username, password })
-      .then(response => this.setState());
+    let { username, password } = this.state;
+    axios.post("/register", { username, password }).then(res => {
+      username, password;
+    });
   }
 
   loginUser() {
-    axios.post("/login", { username, password });
+    let { username, password } = this.state;
+    axios.post("/login", { username, password }).then(res => this.state);
   }
 
   render() {
     console.log(this.state);
     return (
       <div>
-        <input
-          placeholder="username"
-          value={this.state.username}
-          onChange={this.inputField}
-        />
-        <input
-          placeholder="password"
-          value={this.state.password}
-          onChange={this.inputField}
-        />
-        <button onClick={this.loginUser}> Login </button>
+        <input placeholder="username" onChange={this.userField} />
+        <input placeholder="password" onChange={this.passField} />
         <button onClick={this.createUser}> Register </button>
+        <button onClick={this.loginUser}> Login </button>
       </div>
     );
   }

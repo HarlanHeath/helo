@@ -1,5 +1,6 @@
 module.exports = {
-  newUser: (req, res, next) => {
+  newUser: (req, res) => {
+    console.log("NEWUSER", req.body);
     let { username, password } = req.body;
     req.app
       .get("db")
@@ -8,7 +9,8 @@ module.exports = {
       .catch(err => res.send(err));
   },
 
-  loginUser: (req, res, next) => {
+  loginUser: (req, res) => {
+    console.log("LOGINUSER", req.body);
     let { username, password } = req.body;
     req.app
       .get("db")
