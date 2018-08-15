@@ -7,8 +7,8 @@ const controller = require("./controller");
 const port = 3001;
 const app = express();
 
-massive(process.env.CONNECTION_STRING).then(dbInstance => {
-  app.set("db", dbInstance);
+massive(process.env.CONNECTION_STRING).then(db => {
+  app.set("db", db);
 });
 
 app.post("/register", controller.newUser);
