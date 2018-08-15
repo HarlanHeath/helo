@@ -11,6 +11,9 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
   app.set("db", dbInstance);
 });
 
+app.post("/register", controller.newUser);
+app.post("/login", controller.loginUser);
+
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
