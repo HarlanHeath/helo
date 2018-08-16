@@ -5,7 +5,7 @@ module.exports = {
     req.app
       .get("db")
       .create_user([username, password])
-      .then(user => res.status(200).send(user[0]))
+      .then(user => res.status(200).send(user))
       .catch(err => res.send(err));
   },
 

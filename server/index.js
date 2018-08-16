@@ -7,6 +7,8 @@ const controller = require("./controller");
 const port = 3001;
 const app = express();
 
+app.use(json());
+
 massive(process.env.CONNECTION_STRING).then(db => {
   app.set("db", db);
 });

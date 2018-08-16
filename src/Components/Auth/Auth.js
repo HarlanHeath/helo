@@ -26,18 +26,19 @@ export default class Auth extends Component {
 
   createUser() {
     let { username, password } = this.state;
-    axios.post("/register", { username, password }).then(res => {
-      username, password;
-    });
+    axios
+      .post("/register", { username, password })
+      .then(window.location.assign("/#/dashboard"));
   }
 
   loginUser() {
     let { username, password } = this.state;
-    axios.post("/login", { username, password }).then(res => this.state);
+    axios
+      .post("/login", { username, password })
+      .then(window.location.assign("/#/dashboard"));
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <input placeholder="username" onChange={this.userField} />

@@ -10,7 +10,7 @@ import { withRouter } from "react-router-dom";
 
 class App extends Component {
   render() {
-    console.log("VIEW: ", this.props);
+    // console.log("VIEW: ", this.props);
     this.props.location.pathname !== "/" && console.log("WE AIN'T HOME");
     return (
       <div className="App">
