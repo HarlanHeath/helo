@@ -42,7 +42,11 @@ export default class Auth extends Component {
     return (
       <div>
         <input placeholder="username" onChange={this.userField} />
-        <input placeholder="password" onChange={this.passField} />
+        <input
+          placeholder="password"
+          type="password"
+          onChange={this.passField}
+        />
         <button onClick={this.createUser}> Register </button>
         <button onClick={this.loginUser}> Login </button>
       </div>

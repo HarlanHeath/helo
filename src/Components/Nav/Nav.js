@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-export default function Nav() {
+
+function Nav() {
+  console.log(props);
   return (
     <div>
       <Link to="/Dashboard">Home</Link>
@@ -9,3 +12,7 @@ export default function Nav() {
     </div>
   );
 }
+
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps)(Nav);
