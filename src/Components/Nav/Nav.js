@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
   console.log(props);
   return (
     <div>

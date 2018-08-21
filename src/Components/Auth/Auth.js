@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { userLogin } from "../../ducks/reducer";
 import axios from "axios";
 
-export default class Auth extends Component {
+class Auth extends Component {
   constructor() {
     super();
     this.state = {
@@ -53,3 +55,10 @@ export default class Auth extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => state;
+
+export default connect(
+  null,
+  { userLogin }
+)(Auth);
