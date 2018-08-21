@@ -28,16 +28,22 @@ class Auth extends Component {
 
   createUser() {
     let { username, password } = this.state;
-    axios
-      .post("/register", { username, password })
-      .then(window.location.assign("/#/dashboard"));
+    axios.post("/register", { username, password }).then(user => {
+      let { username, profile_pic, id } = user.data[0];
+      this.props
+        .userLogin(username, profile_pic, id)
+        .then(window.location.assign("/#/dashboard"));
+    });
   }
 
   loginUser() {
     let { username, password } = this.state;
-    axios
-      .post("/login", { username, password })
-      .then(window.location.assign("/#/dashboard"));
+    axios.post("/login", { username, password }).then(user => {
+      let { username, profile_pic, id } = user.data[0];
+      this.props.userLogin(username, profile_pic, id);
+      window.location.assign("/#/dashboard");
+      console.log(user);
+    });
   }
 
   render() {
@@ -55,8 +61,6 @@ class Auth extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => state;
 
 export default connect(
   null,
